@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>mnu+_carpool</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <!-- SimpleLightbox plugin CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" ></script>
+    
+    <section class="page-section" id="contact">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase" style="font-size:80px">Registration</h2>
+                <h3 class="section-subheading text-muted" >정보를 입력하세요</h3>
+            </div>
+            <form class="was-validated">
+                <div class="row align-items-stretch mb-5">
+                    <div class="col-md-6">
+                        <div class="col-12">
+                            <h2 class="section-heading text-uppercase" style="font-size:21px">닉네임</label>
+                            <input class="form-control" id="name" type="text" style="font-size:22px"  required/>   
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <!-- Name input-->
+                                    <h2 class="section-heading text-uppercase" style="font-size:21px">출발지</label>
+                                    <input class="form-control" id="departure" type="text" style="font-size:22px"  required/>   
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <!-- Email address input-->
+                                    <h2 class="section-heading text-uppercase" style="font-size:21px">도착지</label>
+                                    <input class="form-control" id="destination" type="text" style="font-size:22px"  required/>                      
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2">
+                                <h2 class="section-heading text-uppercase" style="font-size:21px">출발시간</h2>
+                            </div>
+                            <div class="col-4">
+                                <select class="form-select" id="time1" style="font-size:22px" required aria-label="select example">
+                                    <option value="" selected>오전/오후</option>
+                                    <option >오전</option>
+                                    <option >오후</option>
+                                </select>
+                            </div>
+                            <div class="col-3">
+                                <select class="form-select" id="time2" style="font-size:22px" required aria-label="select example">
+                                <option value="" selected>시</option>
+                                <option>12시</option>
+                                <script>
+                                    for(i=1;i<12;i++){
+                                     document.write("<option>"+i,'시'+"</option>");
+                                    }
+                                    </script>
+                                </select>
+                            </div>
+                            <div class="col-3">
+                                <select class="form-select" id="time3" style="font-size:22px" required aria-label="select example">
+                                    <option value="" selected>분</option>
+                                    <script>                                     
+                                        for(i=0;i<60;i++){
+                                         document.write("<option>"+i,'분'+"</option>");
+                                        }
+                                        </script>
+                                </select>
+                            </div>
+                        </div>     
+                        <div class="row">   
+                            <div class="col-6">
+                                <h2 class="section-heading text-uppercase" style="font-size:21px">인원</label>
+                                <input class="form-control" id="people_number" type="text" style="font-size:22px"  required/>   
+                            </div>
+                            <div class="col-6">
+                                <h2 class="section-heading text-uppercase" style="font-size:21px">비밀번호</label>
+                                <input class="form-control" id="password" type="text" style="font-size:22px"  required/>   
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                    <div class="col-md-6">
+                        <div class="form-group form-group-textarea mb-md-0">
+                            <h2 class="section-heading text-uppercase" style="font-size:21px">남기고 싶은 메세지</label>   
+                            <textarea class="form-control" id="message" type="text" rows="8" style="font-size:22px"></textarea>
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center"><button class="btn btn-warning btn-xl text-uppercase " onclick="info()" id="submitButton" type="submit" style="width:200px; height:100px; font-size:27px">등록하기</button></div>
+            </form>
+        
+        </div>
+    </section>
+</form>
+
+
+
+<script>
+    function info() {
+      var departure = document.getElementById('departure').value;
+      var destination = document.getElementById('destination').value;
+      var time1 = document.getElementById('time1').value;
+      var time2 = document.getElementById('time2').value;
+      var time3 = document.getElementById('time3').value;
+      var people_number = document.getElementById('people_number').value;
+      var password = document.getElementById('password').value;
+      var total="등록완료!"+"\n출발지 : "+ departure +"\n도착지 : "+ destination +"\n출발시간 : "+ time1+ time2+ time3 +"\n인원 : "+ people_number +"\n비밀번호 : "+ password;
+      // 알림창 확인 누르면 choice.html로 이동
+      if (confirm(total) == true){
+        location.href="choice.html";}
+      // 알림창 취소 
+      else{
+        return false;}
+    }
+</script>
+</body>
+</html>
